@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.6 on win32)" generated="2025-07-12T12:12:36.855879" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste case VIACEP" source="C:\DEV\Automacao_VIA.CEP\Testes\Teste_case_VIACEP.robot">
+<test id="s1-t1" name="CT01: Consulta de CEP com dados válidos" line="9">
+<kw name="Cep valido" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:38.005817" level="INFO">GET Request : url=https://viacep.com.br/ws/01001000/json?callback=CEP 
+ path_url=/ws/01001000/json?callback=CEP 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:38.006321" level="INFO">GET Response : url=https://viacep.com.br/ws/01001000/json?callback=CEP 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:42 GMT', 'Content-Type': 'application/javascript; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Expires': 'Sat, 12 Jul 2025 16:12:42 GMT', 'Cache-Control': 'max-age=3600, public', 'Pragma': 'public', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400', 'Content-Encoding': 'gzip'} 
+ body=CEP({
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "unidade": "",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "estado": "São Paulo",
+  "regiao": "Sudeste",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+}); 
+ </msg>
+<msg time="2025-07-12T12:12:38.006321" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${Cep_valido}/json?callback=CEP</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:37.596168" elapsed="0.410153"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:38.006321" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:37.596168" elapsed="0.410153"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:37.595660" elapsed="0.410661"/>
+</test>
+<test id="s1-t2" name="CT02: Consulta de CEP com dado inválido" line="12">
+<kw name="Cep valido" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:38.419103" level="INFO">GET Request : url=https://viacep.com.br/ws/01001000/json?callback=CEP 
+ path_url=/ws/01001000/json?callback=CEP 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:38.419103" level="INFO">GET Response : url=https://viacep.com.br/ws/01001000/json?callback=CEP 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:42 GMT', 'Content-Type': 'application/javascript; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Expires': 'Sat, 12 Jul 2025 16:12:42 GMT', 'Cache-Control': 'max-age=3600, public', 'Pragma': 'public', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400', 'Content-Encoding': 'gzip'} 
+ body=CEP({
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "unidade": "",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "estado": "São Paulo",
+  "regiao": "Sudeste",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+}); 
+ </msg>
+<msg time="2025-07-12T12:12:38.419103" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${Cep_valido}/json?callback=CEP</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:38.007832" elapsed="0.411271"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:38.419103" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:38.007832" elapsed="0.411271"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:38.006321" elapsed="0.412782"/>
+</test>
+<test id="s1-t3" name="CT03: Consulta de CEP válido no formato invalido" line="15">
+<kw name="Cep valido no formato incorreto" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:38.824919" level="INFO">GET Request : url=https://viacep.com.br/ws/010.01-000/json?callback=CEP 
+ path_url=/ws/010.01-000/json?callback=CEP 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:38.824919" level="INFO">GET Response : url=https://viacep.com.br/ws/010.01-000/json?callback=CEP 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:42 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:38.825427" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${Cep_valido_incorreto}/json?callback=CEP</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:38.420612" elapsed="0.404815"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:38.825427" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:38.420612" elapsed="0.405321"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:38.420612" elapsed="0.405321"/>
+</test>
+<test id="s1-t4" name="CT04: Teste Via.CEP com o método incorreto" line="18">
+<kw name="Metodo incorreto CEP" owner="keywords">
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:39.233659" level="INFO">POST Request : url=https://viacep.com.br/ws/01001000/json?callback=CEP 
+ path_url=/ws/01001000/json?callback=CEP 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:39.233659" level="INFO">POST Response : url=https://viacep.com.br/ws/01001000/json?callback=CEP 
+ status=405, reason=Not Allowed 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:43 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '501', 'Connection': 'keep-alive', 'ETag': '"6258adce-1f5"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 405&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 405&lt;/h1&gt;
+    &lt;h3&gt;Método não Permitido&lt;/h3&gt;
+    &lt;h3&gt;{Not Allowed}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:39.233659" level="INFO">${response} = &lt;Response [405]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${Cep_valido}/json?callback=CEP</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2025-07-12T12:12:38.825933" elapsed="0.407726"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>405</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:39.235166" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:38.825933" elapsed="0.409233"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:38.825933" elapsed="0.409740"/>
+</test>
+<test id="s1-t5" name="CT05: Consuta de Endereço com dados válidos" line="21">
+<kw name="Endereço valido" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:39.662036" level="INFO">GET Request : url=https://viacep.com.br/ws/AC/Rio%20Branco/Coelho/json 
+ path_url=/ws/AC/Rio%20Branco/Coelho/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:39.662036" level="INFO">GET Response : url=https://viacep.com.br/ws/AC/Rio%20Branco/Coelho/json 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:43 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400', 'Expires': 'Sat, 12 Jul 2025 16:12:43 GMT', 'Cache-Control': 'max-age=3600, public', 'Pragma': 'public'} 
+ body=[
+  {
+    "cep": "69914-529",
+    "logradouro": "Rua Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Ilson Ribeiro",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69907-575",
+    "logradouro": "Travessa Coelho",
+    "complemento": "até 399/400",
+    "unidade": "",
+    "bairro": "Recanto dos Buritis",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69907-527",
+    "logradouro": "Travessa Coelho",
+    "complemento": "de 401/402 ao fim",
+    "unidade": "",
+    "bairro": "Recanto dos Buritis",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69905-454",
+    "logradouro": "Rua Coelho Ramos",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Cidade Nova",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69908-124",
+    "logradouro": "Rua Enedina Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Vila Santa Cecília",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69906-086",
+    "logradouro": "Rua Oswaldo Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Areal",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69905-308",
+    "logradouro": "Rua Raimundo Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Baixada da Cadeia Velha",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-773",
+    "logradouro": "Rua Silvestre Coelho",
+    "complemento": "de 379/380 a 613/614",
+    "unidade": "",
+    "bairro": "José Augusto",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-363",
+    "logradouro": "Rua Silvestre Coelho",
+    "complemento": "até 377/378",
+    "unidade": "",
+    "bairro": "Ipase",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-661",
+    "logradouro": "Rua Silvestre Coelho",
+    "complemento": "de 615/616 ao fim",
+    "unidade": "",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69921-557",
+    "logradouro": "Rua João Minas Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Montanhês",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69907-572",
+    "logradouro": "Travessa Osvaldo Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Recanto dos Buritis",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  }
+] 
+ </msg>
+<msg time="2025-07-12T12:12:39.662036" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_estado}/${endereco_AC_cidade}/${endereco_AC_logradouro_valido}/json</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:39.236182" elapsed="0.425854"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:39.663038" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:39.236182" elapsed="0.426856"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:39.235673" elapsed="0.427867"/>
+</test>
+<test id="s1-t6" name="CT06: Consuta de Endereço com dados inválidos - Cidade não pertence ao Estado" line="24">
+<kw name="Endereço de cidade não pertence a estado" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:40.077561" level="INFO">GET Request : url=https://viacep.com.br/ws/AC/Sao%20Paulo/Coelho/json 
+ path_url=/ws/AC/Sao%20Paulo/Coelho/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:40.077561" level="INFO">GET Response : url=https://viacep.com.br/ws/AC/Sao%20Paulo/Coelho/json 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:44 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400', 'Expires': 'Sat, 12 Jul 2025 16:12:44 GMT', 'Cache-Control': 'max-age=3600, public', 'Pragma': 'public'} 
+ body=[] 
+ </msg>
+<msg time="2025-07-12T12:12:40.077561" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_estado}/${endereco_SP_cidade}/${endereco_AC_logradouro_valido}/json</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:39.663540" elapsed="0.414021"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:40.077561" elapsed="0.001512"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:39.663540" elapsed="0.415533"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:39.663540" elapsed="0.415533"/>
+</test>
+<test id="s1-t7" name="CT07: Consuta de obrigatoriedade do campo LOGRADOURO" line="27">
+<kw name="Logradouro null" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:40.486312" level="INFO">GET Request : url=https://viacep.com.br/ws/SP/Sao%20Paulo/json 
+ path_url=/ws/SP/Sao%20Paulo/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:40.486312" level="INFO">GET Response : url=https://viacep.com.br/ws/SP/Sao%20Paulo/json 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:44 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:40.486312" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_SP_estado}/${endereco_SP_cidade}/json</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:40.079073" elapsed="0.407239"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:40.487824" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:40.079073" elapsed="0.408751"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:40.079073" elapsed="0.408751"/>
+</test>
+<test id="s1-t8" name="CT08: Consuta de obrigatoriedade do campo ESTADO" line="30">
+<kw name="Estado null" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:40.897760" level="INFO">GET Request : url=https://viacep.com.br/ws/Rio%20Branco/Coelho/json 
+ path_url=/ws/Rio%20Branco/Coelho/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:40.897760" level="INFO">GET Response : url=https://viacep.com.br/ws/Rio%20Branco/Coelho/json 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:45 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:40.899269" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_cidade}/${endereco_AC_logradouro_valido}/json</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:40.487824" elapsed="0.411445"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:40.899269" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:40.487824" elapsed="0.411445"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:40.487824" elapsed="0.411445"/>
+</test>
+<test id="s1-t9" name="CT09: Consuta de obrigatoriedade do campo CIDADE" line="33">
+<kw name="Cidade null" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:41.325251" level="INFO">GET Request : url=https://viacep.com.br/ws/AC/Coelho/json 
+ path_url=/ws/AC/Coelho/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:41.325251" level="INFO">GET Response : url=https://viacep.com.br/ws/AC/Coelho/json 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:45 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:41.325251" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_estado}/${endereco_AC_logradouro_valido}/json</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:40.900802" elapsed="0.424449"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:41.325251" elapsed="0.000507"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:40.900802" elapsed="0.424956"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:40.899269" elapsed="0.426489"/>
+</test>
+<test id="s1-t10" name="CT10: Validação da quantidade de caractéries minimos das variaveis LOGRADOURO e CIDADE" line="36">
+<kw name="Caracteries minimos" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:41.746032" level="INFO">GET Request : url=https://viacep.com.br/ws/AC/rio/coe/json 
+ path_url=/ws/AC/rio/coe/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:41.746032" level="INFO">GET Response : url=https://viacep.com.br/ws/AC/rio/coe/json 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:45 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400', 'Expires': 'Sat, 12 Jul 2025 16:12:45 GMT', 'Cache-Control': 'max-age=3600, public', 'Pragma': 'public'} 
+ body=[
+  {
+    "cep": "69914-529",
+    "logradouro": "Rua Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Ilson Ribeiro",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69907-575",
+    "logradouro": "Travessa Coelho",
+    "complemento": "até 399/400",
+    "unidade": "",
+    "bairro": "Recanto dos Buritis",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69907-527",
+    "logradouro": "Travessa Coelho",
+    "complemento": "de 401/402 ao fim",
+    "unidade": "",
+    "bairro": "Recanto dos Buritis",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69905-454",
+    "logradouro": "Rua Coelho Ramos",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Cidade Nova",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69908-124",
+    "logradouro": "Rua Enedina Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Vila Santa Cecília",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69906-086",
+    "logradouro": "Rua Oswaldo Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Areal",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69905-308",
+    "logradouro": "Rua Raimundo Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Baixada da Cadeia Velha",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-661",
+    "logradouro": "Rua Silvestre Coelho",
+    "complemento": "de 615/616 ao fim",
+    "unidade": "",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-773",
+    "logradouro": "Rua Silvestre Coelho",
+    "complemento": "de 379/380 a 613/614",
+    "unidade": "",
+    "bairro": "José Augusto",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-363",
+    "logradouro": "Rua Silvestre Coelho",
+    "complemento": "até 377/378",
+    "unidade": "",
+    "bairro": "Ipase",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69921-557",
+    "logradouro": "Rua João Minas Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Montanhês",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69918-172",
+    "logradouro": "Avenida Nações Unidas",
+    "complemento": "de 2711/2712 ao fim",
+    "unidade": "",
+    "bairro": "Estação Experimental",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69918-093",
+    "logradouro": "Avenida Nações Unidas",
+    "complemento": "de 1486/1487 a 2709/2710",
+    "unidade": "",
+    "bairro": "7º BEC",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-721",
+    "logradouro": "Avenida Nações Unidas",
+    "complemento": "até 663 - lado ímpar",
+    "unidade": "",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69907-572",
+    "logradouro": "Travessa Osvaldo Coelho",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Recanto dos Buritis",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-715",
+    "logradouro": "Avenida Nações Unidas",
+    "complemento": "até 662 - lado par",
+    "unidade": "",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-520",
+    "logradouro": "Avenida Nações Unidas",
+    "complemento": "de 1146 a 1484 - lado par",
+    "unidade": "",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-478",
+    "logradouro": "Avenida Nações Unidas",
+    "complemento": "de 664 a 1144 - lado par",
+    "unidade": "",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-463",
+    "logradouro": "Avenida Nações Unidas",
+    "complemento": "de 665 a 1143 - lado ímpar",
+    "unidade": "",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  },
+  {
+    "cep": "69900-460",
+    "logradouro": "Avenida Nações Unidas",
+    "complemento": "de 1145 a 1485 - lado ímpar",
+    "unidade": "",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+    "estado": "Acre",
+    "regiao": "Norte",
+    "ibge": "1200401",
+    "gia": "",
+    "ddd": "68",
+    "siafi": "0139"
+  }
+] 
+ </msg>
+<msg time="2025-07-12T12:12:41.747539" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_estado}/rio/coe/json</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:41.325758" elapsed="0.421781"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:41.747539" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:41.325758" elapsed="0.421781"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:41.325758" elapsed="0.421781"/>
+</test>
+<test id="s1-t11" name="CT11:Validação da quantidade de caractéries da variavel LOGRADOURO" line="39">
+<kw name="Quantidade de Caracteries LOGRADOURO" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:42.146226" level="INFO">GET Request : url=https://viacep.com.br/ws/AC/Rio%20Branco/co/json 
+ path_url=/ws/AC/Rio%20Branco/co/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:42.146226" level="INFO">GET Response : url=https://viacep.com.br/ws/AC/Rio%20Branco/co/json 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:46 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:42.146226" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_estado}/${endereco_AC_cidade}/co/json</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:41.749050" elapsed="0.397176"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:42.146226" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:41.749050" elapsed="0.397176"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:41.747539" elapsed="0.398687"/>
+</test>
+<test id="s1-t12" name="CT12: Validação da quantidade de caractéries minimo da variavel CIDADE" line="41">
+<kw name="Quantidade de Caracteries CIDADE" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:42.553384" level="INFO">GET Request : url=https://viacep.com.br/ws/AC/ri/Coelho/json 
+ path_url=/ws/AC/ri/Coelho/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:42.553384" level="INFO">GET Response : url=https://viacep.com.br/ws/AC/ri/Coelho/json 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:46 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:42.553384" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_estado}/ri/${endereco_AC_logradouro_valido}/json</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:42.147736" elapsed="0.405648"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:42.553384" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:42.147736" elapsed="0.405648"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:42.147736" elapsed="0.407157"/>
+</test>
+<test id="s1-t13" name="CT13: Consuta de Endereço com caractéries especiais" line="44">
+<kw name="Cidade caracteries especiais" owner="keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:42.954549" level="INFO">GET Request : url=https://viacep.com.br/ws/AC/ri@/Coelho/json 
+ path_url=/ws/AC/ri@/Coelho/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:42.955551" level="INFO">GET Response : url=https://viacep.com.br/ws/AC/ri@/Coelho/json 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:47 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:42.955551" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_estado}/ri@/${endereco_AC_logradouro_valido}/json</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-12T12:12:42.555931" elapsed="0.399620"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:42.955551" elapsed="0.000502"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:42.555423" elapsed="0.400630"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:42.555423" elapsed="0.400630"/>
+</test>
+<test id="s1-t14" name="CT14: Validação do método de endereço" line="47">
+<kw name="Metodo incorreto ENDEREÇO" owner="keywords">
+<kw name="DELETE" owner="RequestsLibrary">
+<msg time="2025-07-12T12:12:43.356364" level="INFO">DELETE Request : url=https://viacep.com.br/ws/AC/Rio%20Branco/Coelho/json 
+ path_url=/ws/AC/Rio%20Branco/Coelho/json 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T12:12:43.356364" level="INFO">DELETE Response : url=https://viacep.com.br/ws/AC/Rio%20Branco/Coelho/json 
+ status=405, reason=Not Allowed 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 12 Jul 2025 15:12:47 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '157', 'Connection': 'keep-alive'} 
+ body=&lt;html&gt;
+&lt;head&gt;&lt;title&gt;405 Not Allowed&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;&lt;h1&gt;405 Not Allowed&lt;/h1&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;center&gt;nginx/1.22.0&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-07-12T12:12:43.356364" level="INFO">${response} = &lt;Response [405]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URl}/${endereco_AC_estado}/${endereco_AC_cidade}/${endereco_AC_logradouro_valido}/json</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a DELETE request.</doc>
+<status status="PASS" start="2025-07-12T12:12:42.956053" elapsed="0.400311"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>405</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-07-12T12:12:43.356364" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:42.956053" elapsed="0.400311"/>
+</kw>
+<status status="PASS" start="2025-07-12T12:12:42.956053" elapsed="0.400311"/>
+</test>
+<doc>Tem como objetivo os cenários de teste automatizados, visando a cobertura e garantia da qualidade da API VIA.CEP, conforme documentação https://viacep.com.br/</doc>
+<status status="PASS" start="2025-07-12T12:12:36.856383" elapsed="6.501491"/>
+</suite>
+<statistics>
+<total>
+<stat pass="14" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="14" fail="0" skip="0" id="s1" name="Teste case VIACEP">Teste case VIACEP</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-07-12T12:12:36.889175" level="ERROR">Error in file 'C:\DEV\Automacao_VIA.CEP\object\keywords.robot' on line 10: Setting 'Test Setup' is not allowed in resource file.</msg>
+</errors>
+</robot>
